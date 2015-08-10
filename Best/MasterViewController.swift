@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     var objects = [AnyObject]()
+    
+    var logInViewController: PFLogInViewController! = PFLogInViewController()
+    var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
 
 
     override func awakeFromNib() {
@@ -24,6 +29,41 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
+        
+//        var user = PFUser.currentUser()
+//        if user != nil {
+//            println(user)
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        } else {
+//            println("No logged in user")
+//            var login: PFLogInViewController = PFLogInViewController()
+//            login.fields = PFLogInFields.Facebook
+//            self.presentViewController(login, animated: true, completion: nil)
+//        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (PFUser.currentUser() == nil) {
+            self.logInViewController.fields = PFLogInFields.Facebook
+            
+            var logInLogoTitle = UILabel()
+            logInLogoTitle.text = "Best"
+            
+            self.logInViewController.logInView?.logo = logInLogoTitle
+            
+            self.logInViewController.delegate = self
+            
+            var signupLogoTitle = UILabel()
+            signupLogoTitle.text = "Best"
+            
+            self.signUpViewController.signUpView?.logo = signupLogoTitle
+            
+            self.signUpViewController.delegate = self
+            
+            self.logInViewController.signUpController = self.signUpViewController
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +75,36 @@ class MasterViewController: UITableViewController {
         objects.insert(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
+    // MARK: Parse Login
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
+        println("Failed to login")
+    }
+    
+    // MARK: Parse Signup
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
+        println("Failed to sign up")
+    }
+    
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
+        println("User dismissed signup")
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func simpleAction(sender:AnyObject) {
+        self.presentViewController(self.logInViewController, animated: true, completion: nil)
     }
 
     // MARK: - Segues
