@@ -14,7 +14,6 @@
 		C9442DC41B75BA6E00190B73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9442DC31B75BA6E00190B73 /* Images.xcassets */; };
 		C9442DC71B75BA6E00190B73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9442DC51B75BA6E00190B73 /* LaunchScreen.xib */; };
 		C9442DD31B75BA6E00190B73 /* BestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9442DD21B75BA6E00190B73 /* BestTests.swift */; };
-		C96DF2D81B790351003FAC7E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DF2D71B790351003FAC7E /* RootViewController.swift */; };
 		C9AAB0A01B7816FF00988A70 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB09F1B7816FF00988A70 /* Parse.framework */; };
 		C9AAB0A21B78171200988A70 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0A11B78171200988A70 /* Bolts.framework */; };
 		C9AAB0A41B78173E00988A70 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0A31B78173E00988A70 /* AudioToolbox.framework */; };
@@ -34,8 +33,6 @@
 		C9AAB0C41B78233800988A70 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0C31B78233800988A70 /* FBSDKLoginKit.framework */; };
 		C9AAB0C61B78234100988A70 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0C51B78234100988A70 /* FBSDKShareKit.framework */; };
 		C9AAB0C81B7829E200988A70 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0C71B7829E200988A70 /* ParseFacebookUtilsV4.framework */; };
-		C9AAB0CA1B78597A00988A70 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAB0C91B78597A00988A70 /* LogInViewController.swift */; };
-		C9AAB0CC1B7859A400988A70 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAB0CB1B7859A400988A70 /* SignUpViewController.swift */; };
 		C9AE2CAB1B785F29008EB08F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AE2CA81B785F29008EB08F /* FBSDKCoreKit.framework */; };
 		C9AE2CAC1B785F29008EB08F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AE2CA91B785F29008EB08F /* FBSDKLoginKit.framework */; };
 		C9AE2CAD1B785F29008EB08F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AE2CAA1B785F29008EB08F /* FBSDKShareKit.framework */; };
@@ -63,7 +60,6 @@
 		C9442DCC1B75BA6E00190B73 /* BestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9442DD11B75BA6E00190B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9442DD21B75BA6E00190B73 /* BestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTests.swift; sourceTree = "<group>"; };
-		C96DF2D71B790351003FAC7E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C9AAB09F1B7816FF00988A70 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C9AAB0A11B78171200988A70 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C9AAB0A31B78173E00988A70 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -84,8 +80,6 @@
 		C9AAB0C31B78233800988A70 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C9AAB0C51B78234100988A70 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C9AAB0C71B7829E200988A70 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		C9AAB0C91B78597A00988A70 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		C9AAB0CB1B7859A400988A70 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C9AE2CA81B785F29008EB08F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C9AE2CA91B785F29008EB08F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C9AE2CAA1B785F29008EB08F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -155,9 +149,6 @@
 			children = (
 				C9442DBA1B75BA6E00190B73 /* AppDelegate.swift */,
 				C9442DBC1B75BA6E00190B73 /* MasterViewController.swift */,
-				C96DF2D71B790351003FAC7E /* RootViewController.swift */,
-				C9AAB0C91B78597A00988A70 /* LogInViewController.swift */,
-				C9AAB0CB1B7859A400988A70 /* SignUpViewController.swift */,
 				C9442DBE1B75BA6E00190B73 /* DetailViewController.swift */,
 				C9442DC01B75BA6E00190B73 /* Main.storyboard */,
 				C9442DC31B75BA6E00190B73 /* Images.xcassets */,
@@ -323,12 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9AAB0CA1B78597A00988A70 /* LogInViewController.swift in Sources */,
 				C9442DBF1B75BA6E00190B73 /* DetailViewController.swift in Sources */,
-				C96DF2D81B790351003FAC7E /* RootViewController.swift in Sources */,
 				C9442DBD1B75BA6E00190B73 /* MasterViewController.swift in Sources */,
 				C9442DBB1B75BA6E00190B73 /* AppDelegate.swift in Sources */,
-				C9AAB0CC1B7859A400988A70 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

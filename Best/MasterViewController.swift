@@ -10,9 +10,39 @@ import UIKit
 import Parse
 import ParseUI
 
-class MasterViewController: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
-
-    var objects = [AnyObject]()
+class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+    
+    // Initialize the PFQueryTable tableview
+    override init(style: UITableViewStyle, className: String!) {
+        super.init(style: style, className: className)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        // Configure the PFQueryTableView
+        self.parseClassName = "BestCategory"
+        self.textKey = "categoryTitle"
+        self.pullToRefreshEnabled = true
+        self.paginationEnabled = false
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! PFTableViewCell!
+        if cell == nil {
+            cell = PFTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        }
+        
+        // Extract values from the PFObject to display in the table cell
+        if let categoryTitle = object?["categoryTitle"] as? String {
+            cell?.textLabel?.text = categoryTitle
+        }
+        
+        if let categoryCategory = object?["categoryCategory"] as? String {
+            cell?.detailTextLabel?.text = categoryCategory
+        }
+        return cell
+    }
     
     var logInViewController: PFLogInViewController! = PFLogInViewController()
     var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
@@ -29,22 +59,21 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
-        
-//        var user = PFUser.currentUser()
-//        if user != nil {
-//            println(user)
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        } else {
-//            println("No logged in user")
-//            var login: PFLogInViewController = PFLogInViewController()
-//            login.fields = PFLogInFields.Facebook
-//            self.presentViewController(login, animated: true, completion: nil)
-//        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.presentLogInView()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func presentLogInView() {
         if (PFUser.currentUser() == nil) {
             self.logInViewController.fields = PFLogInFields.Facebook
             
@@ -69,17 +98,6 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
             println("Current user already signed in")
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     // MARK: Parse Login
@@ -110,52 +128,16 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
     
     @IBAction func logout(sender: AnyObject) {
         PFUser.logOut()
+        self.presentLogInView()
     }
-    @IBAction func simpleAction(sender:AnyObject) {
-        self.presentViewController(self.logInViewController, animated: true, completion: nil)
-    }
-
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as! NSDate
-            (segue.destinationViewController as! DetailViewController).detailItem = object
-            }
-        }
-    }
-
-    // MARK: - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+    
+    // MARK: Queries
+    
+    // Define the query that will provide the data for the table view
+    override func queryForTable() -> PFQuery {
+        var query = PFQuery(className: "BestCategory")
+        query.orderByAscending("categoryTitle")
+        return query
     }
 
 
