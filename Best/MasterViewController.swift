@@ -28,7 +28,7 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
+        //self.navigationItem.rightBarButtonItem = addButton
         
 //        var user = PFUser.currentUser()
 //        if user != nil {
@@ -63,6 +63,11 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
             self.signUpViewController.delegate = self
             
             self.logInViewController.signUpController = self.signUpViewController
+            
+            self.presentViewController(logInViewController, animated: true, completion: nil)
+        } else {
+            println("Current user already signed in")
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 
@@ -103,6 +108,9 @@ class MasterViewController: UITableViewController, PFLogInViewControllerDelegate
     
     // MARK: Actions
     
+    @IBAction func logout(sender: AnyObject) {
+        PFUser.logOut()
+    }
     @IBAction func simpleAction(sender:AnyObject) {
         self.presentViewController(self.logInViewController, animated: true, completion: nil)
     }

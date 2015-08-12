@@ -14,6 +14,7 @@
 		C9442DC41B75BA6E00190B73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9442DC31B75BA6E00190B73 /* Images.xcassets */; };
 		C9442DC71B75BA6E00190B73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9442DC51B75BA6E00190B73 /* LaunchScreen.xib */; };
 		C9442DD31B75BA6E00190B73 /* BestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9442DD21B75BA6E00190B73 /* BestTests.swift */; };
+		C96DF2D81B790351003FAC7E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DF2D71B790351003FAC7E /* RootViewController.swift */; };
 		C9AAB0A01B7816FF00988A70 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB09F1B7816FF00988A70 /* Parse.framework */; };
 		C9AAB0A21B78171200988A70 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0A11B78171200988A70 /* Bolts.framework */; };
 		C9AAB0A41B78173E00988A70 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AAB0A31B78173E00988A70 /* AudioToolbox.framework */; };
@@ -62,6 +63,7 @@
 		C9442DCC1B75BA6E00190B73 /* BestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9442DD11B75BA6E00190B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9442DD21B75BA6E00190B73 /* BestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTests.swift; sourceTree = "<group>"; };
+		C96DF2D71B790351003FAC7E /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C9AAB09F1B7816FF00988A70 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C9AAB0A11B78171200988A70 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C9AAB0A31B78173E00988A70 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -153,6 +155,7 @@
 			children = (
 				C9442DBA1B75BA6E00190B73 /* AppDelegate.swift */,
 				C9442DBC1B75BA6E00190B73 /* MasterViewController.swift */,
+				C96DF2D71B790351003FAC7E /* RootViewController.swift */,
 				C9AAB0C91B78597A00988A70 /* LogInViewController.swift */,
 				C9AAB0CB1B7859A400988A70 /* SignUpViewController.swift */,
 				C9442DBE1B75BA6E00190B73 /* DetailViewController.swift */,
@@ -322,6 +325,7 @@
 			files = (
 				C9AAB0CA1B78597A00988A70 /* LogInViewController.swift in Sources */,
 				C9442DBF1B75BA6E00190B73 /* DetailViewController.swift in Sources */,
+				C96DF2D81B790351003FAC7E /* RootViewController.swift in Sources */,
 				C9442DBD1B75BA6E00190B73 /* MasterViewController.swift in Sources */,
 				C9442DBB1B75BA6E00190B73 /* AppDelegate.swift in Sources */,
 				C9AAB0CC1B7859A400988A70 /* SignUpViewController.swift in Sources */,
@@ -503,6 +507,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Best.app/Best";
@@ -518,6 +523,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Best.app/Best";
