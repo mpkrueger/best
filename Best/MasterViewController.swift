@@ -131,6 +131,20 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
         self.presentLogInView()
     }
     
+    func tableview(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("LoadCategoryView", sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var navigationView = segue.destinationViewController as! UINavigationController
+        var categoryView = navigationView.visibleViewController as! CategoryViewController
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow() {
+            let row = Int(indexPath.row)
+            categoryView.currentObject = (objects?[row] as! PFObject)
+        }
+    }
+    
     // MARK: Queries
     
     // Define the query that will provide the data for the table view
