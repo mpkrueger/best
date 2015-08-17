@@ -23,7 +23,8 @@ class CandidateViewController: UIViewController {
             candidate["candidateTitle"] = candidateTitle
             candidate["votes"] = 1
             candidate["categoryID"] = currentObject
-        
+            
+            candidate.pinInBackground()
             candidate.saveEventually(nil)
         }
         

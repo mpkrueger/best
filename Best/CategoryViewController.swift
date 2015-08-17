@@ -30,6 +30,7 @@ class CategoryViewController: PFQueryTableViewController {
         var query = PFQuery(className: "CategoryCandidates")
         query.orderByDescending("votes")
         query.whereKey("categoryID", equalTo: currentObject!)
+//        query.fromLocalDatastore()
         return query
     }
     
@@ -56,6 +57,7 @@ class CategoryViewController: PFQueryTableViewController {
     override func viewDidAppear(animated: Bool) {
         
         // This isn't working
+        println("page is going to reload data")
         self.tableView.reloadData()
     }
     
