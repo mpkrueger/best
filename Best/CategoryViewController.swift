@@ -20,6 +20,10 @@ class CategoryViewController: PFQueryTableViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        var query = PFQuery(className: "CategoryCandidates")
+        var candidates: Array = query.findObjects()!
+        PFObject.pinAll(candidates)
+        
         self.parseClassName = "CategoryCandidates"
         self.textKey = "candidateTitle"
         self.pullToRefreshEnabled = true
@@ -28,9 +32,9 @@ class CategoryViewController: PFQueryTableViewController {
     
     override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "CategoryCandidates")
+        query.fromLocalDatastore()
         query.orderByDescending("votes")
         query.whereKey("categoryID", equalTo: currentObject!)
-//        query.fromLocalDatastore()
         return query
     }
     
@@ -58,7 +62,9 @@ class CategoryViewController: PFQueryTableViewController {
         
         // This isn't working
         println("page is going to reload data")
-        self.tableView.reloadData()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
