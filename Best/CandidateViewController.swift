@@ -23,12 +23,12 @@ class CandidateViewController: UIViewController {
             candidate["candidateTitle"] = candidateTitle
             candidate["votes"] = 1
             candidate["categoryID"] = currentObject
-            candidate.pinInBackground()
+//            candidate.pinInBackground()
             
-//            candidate.saveEventually(nil)
+            candidate.saveEventually(nil)
         }
         
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.
     }
     
     override func viewDidLoad() {
