@@ -38,23 +38,36 @@ class CategoryViewController: PFQueryTableViewController {
         return query
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> CandidateTableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! PFTableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! CandidateTableViewCell!
         if cell == nil {
-            cell = PFTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+            cell = CandidateTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         }
+
+        cell?.voteButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+
         
         // Extract values from the PFObject to display in the table cell
         if let candidateTitle = object?["candidateTitle"] as? String {
             cell?.textLabel?.text = candidateTitle
         }
         
+        if let votesTotal = object?["votes"] as? Int {
+            cell?.votesLabel.text = votesTotal.description
+        }
+        
         return cell
+    }
+    
+    func buttonAction(sender:UIButton!) {
+        println(self.tableView.indexPathForSelectedRow())
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.registerClass(CandidateTableViewCell.self, forCellReuseIdentifier: "Cell")
 
     }
     
