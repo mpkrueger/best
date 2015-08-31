@@ -12,6 +12,7 @@ import ParseUI
 
 class CategoryViewController: PFQueryTableViewController {
     var currentObject : PFObject?
+    var candidates: Array<AnyObject>?
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -21,7 +22,7 @@ class CategoryViewController: PFQueryTableViewController {
         super.init(coder: aDecoder)
         
         var query = PFQuery(className: "CategoryCandidates")
-        var candidates: Array = query.findObjects()!
+        candidates = query.findObjects()!
         PFObject.pinAll(candidates)
         
         self.parseClassName = "CategoryCandidates"
@@ -57,11 +58,22 @@ class CategoryViewController: PFQueryTableViewController {
             cell?.votesLabel.text = votesTotal.description
         }
         
+        
+        
+        cell.voteButton.tag = indexPath.row
+        
         return cell
     }
     
     func buttonAction(sender:UIButton!) {
-        println(self.tableView.indexPathForSelectedRow())
+        println(sender.tag)
+        
+        
+        
+        // query
+        
+        // disable after pressed
+//        let candidate: PFObject = self.candidates.objectAtIndex[sender.tag]
     }
     
     override func viewDidLoad() {
