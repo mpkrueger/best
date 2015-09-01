@@ -21,10 +21,6 @@ class CategoryViewController: PFQueryTableViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        var query = PFQuery(className: "CategoryCandidates")
-        candidates = query.findObjects()!
-        PFObject.pinAll(candidates)
-        
         self.parseClassName = "CategoryCandidates"
         self.textKey = "candidateTitle"
         self.pullToRefreshEnabled = true
@@ -32,11 +28,10 @@ class CategoryViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-        var query = PFQuery(className: "CategoryCandidates")
-        query.fromLocalDatastore()
-        query.orderByDescending("votes")
-        query.whereKey("categoryID", equalTo: currentObject!)
-        return query
+        var categoryCandidates = PFQuery(className: "CategoryCandidates")
+        categoryCandidates.whereKey("categoryID", equalTo: currentObject!)
+        
+        return categoryCandidates
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> CandidateTableViewCell {
