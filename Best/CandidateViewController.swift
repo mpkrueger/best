@@ -21,12 +21,25 @@ class CandidateViewController: UIViewController {
         if let candidateTitle = candidateTitle.text {
             var candidate = PFObject(className: "CategoryCandidates")
             candidate["candidateTitle"] = candidateTitle
-            candidate["votes"] = 1
+            
             candidate["categoryID"] = currentObject
-//            candidate.pinInBackground()
             
             candidate.saveEventually(nil)
+            
+            var candidateVote = PFObject(className: "CandidateVotes")
+            candidateVote["candidateID"] = candidate
+            candidateVote["userID"] = PFUser.currentUser()
+            candidateVote.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                    println("object saved")
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
         }
+        
         
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }

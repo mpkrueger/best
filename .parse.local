@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Best": {
+      "applicationId": "GOhrSkwfFsoQrrF8wgQ45tP8zz8Nl42Lj1Csfgq0"
+    },
+    "_default": {
+      "link": "Best"
+    }
+  }
+}

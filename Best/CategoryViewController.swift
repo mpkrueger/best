@@ -28,10 +28,10 @@ class CategoryViewController: PFQueryTableViewController {
     }
     
     override func queryForTable() -> PFQuery {
-        var categoryCandidates = PFQuery(className: "CategoryCandidates")
-        categoryCandidates.whereKey("categoryID", equalTo: currentObject!)
-        
-        return categoryCandidates
+        var query = PFQuery(className: "CategoryCandidates")
+        query.whereKey("categoryID", equalTo: currentObject!)
+        query.orderByDescending("votes")
+        return query
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> CandidateTableViewCell {
