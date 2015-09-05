@@ -3,7 +3,7 @@
 
 Parse.Cloud.afterSave("CandidateVotes", function(request) {
   query = new Parse.Query("CategoryCandidates");
-  query.get(request.object.get("votes"), {
+  query.get(request.object.get("candidateID").objectID, {
     success: function(candidate) {
       candidate.increment("votes");
       candidate.save();
