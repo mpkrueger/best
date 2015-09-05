@@ -21,10 +21,10 @@ class CandidateViewController: UIViewController {
         if let candidateTitle = candidateTitle.text {
             var candidate = PFObject(className: "CategoryCandidates")
             candidate["candidateTitle"] = candidateTitle
-            
+            candidate["votes"] = 0
             candidate["categoryID"] = currentObject
             
-            candidate.saveEventually(nil)
+            candidate.save()
             
             var candidateVote = PFObject(className: "CandidateVotes")
             candidateVote["candidateID"] = candidate

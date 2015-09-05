@@ -3,13 +3,12 @@
 
 Parse.Cloud.afterSave("CandidateVotes", function(request) {
   query = new Parse.Query("CategoryCandidates");
-  query.get(request.object.get("candidateID").objectID, {
+  query.get(request.object.get("candidateID").id, {
     success: function(candidate) {
       candidate.increment("votes");
       candidate.save();
     },
     error: function(error) {
-      console.error("Got an error" + error.code + " : " + error.message);
     }
   });
 });

@@ -61,14 +61,23 @@ class CategoryViewController: PFQueryTableViewController {
     }
     
     func buttonAction(sender:UIButton!) {
-        println(sender.tag)
         
+        let buttonPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
+        let buttonIndex = self.tableView.indexPathForRowAtPoint(buttonPoint)
+        let candidate = objectAtIndexPath(buttonIndex)
         
+        var candidateVote = PFObject(className: "CandidateVotes")
+        candidateVote["candidateID"] = candidate
+        candidateVote["userID"] = PFUser.currentUser()
+        candidateVote.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                println("object saved")
+            } else {
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
         
-        // query
-        
-        // disable after pressed
-//        let candidate: PFObject = self.candidates.objectAtIndex[sender.tag]
     }
     
     override func viewDidLoad() {
