@@ -15,6 +15,7 @@ class CandidateViewController: UIViewController {
     @IBOutlet weak var candidateTitle: UITextField!
     
     @IBAction func cancelButton(sender: AnyObject) {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func saveButton(sender: AnyObject) {

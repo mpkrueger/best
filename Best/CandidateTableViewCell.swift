@@ -12,17 +12,19 @@ import ParseUI
 
 class CandidateTableViewCell: PFTableViewCell {
     
-    var voteButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    let plusImage = UIImage(named: "plus.png") as UIImage!
+    let checkmarkImage = UIImage(named: "checkmark.png") as UIImage!
+    let voteButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     var votesLabel: UILabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        voteButton.frame = CGRectMake((CGRectGetWidth(self.contentView.frame) / 2), (CGRectGetHeight(self.contentView.frame) / 4), (CGRectGetWidth(self.contentView.frame) / 10), (CGRectGetHeight(self.contentView.frame) / 2))
+        voteButton.setImage(plusImage, forState: UIControlState.Normal)
+        voteButton.setImage(checkmarkImage, forState: UIControlState.Selected)
+        voteButton.frame = CGRectMake((CGRectGetWidth(self.contentView.frame) * 15 / 16), (CGRectGetHeight(self.contentView.frame) / 4), (CGRectGetHeight(self.contentView.frame) / 2), (CGRectGetHeight(self.contentView.frame) / 2))
         
-        voteButton.backgroundColor = UIColor.greenColor()
-        
-        votesLabel.frame = CGRectMake((CGRectGetWidth(self.contentView.frame) * 15 / 16), (CGRectGetHeight(self.contentView.frame) / 4), (CGRectGetWidth(self.contentView.frame) / 10), (CGRectGetHeight(self.contentView.frame) / 2))
+        votesLabel.frame = CGRectMake((CGRectGetWidth(self.contentView.frame) * 5 / 8), (CGRectGetHeight(self.contentView.frame) / 4), (CGRectGetWidth(self.contentView.frame) / 4), (CGRectGetHeight(self.contentView.frame) / 2))
         
         self.contentView.addSubview(voteButton)
         self.contentView.addSubview(votesLabel)

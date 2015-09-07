@@ -50,7 +50,11 @@ class CategoryViewController: PFQueryTableViewController {
         }
         
         if let votesTotal = object?["votes"] as? Int {
-            cell?.votesLabel.text = votesTotal.description
+            if votesTotal > 1 {
+                cell?.votesLabel.text = "\(votesTotal.description) votes"
+            } else if votesTotal == 1 {
+                cell?.votesLabel.text = "\(votesTotal.description) vote"
+            }
         }
         
         
@@ -78,12 +82,19 @@ class CategoryViewController: PFQueryTableViewController {
             }
         }
         
+        if(sender.selected == false) {
+            sender.selected = true
+        } else {
+            sender.selected = false
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.registerClass(CandidateTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
 
     }
     

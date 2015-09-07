@@ -55,10 +55,12 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+//        self.navigationItem.rightBarButtonItem = addButton
+        
+        self.tableView.reloadData()
 
     }
     
@@ -66,6 +68,7 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
         super.viewDidAppear(animated)
         
         self.presentLogInView()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,23 +129,33 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
     
     // MARK: Actions
     
+    @IBAction func createNewCategory(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("CreateNewCategory", sender: UIBarButtonItem())
+    }
+    
+    
     @IBAction func logout(sender: AnyObject) {
         PFUser.logOut()
         self.presentLogInView()
     }
     
     func tableview(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("LoadCategoryView", sender: indexPath)
+        self.performSegueWithIdentifier("ShowCategoryView", sender: indexPath)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var navigationView = segue.destinationViewController as! UINavigationController
-        var categoryView = navigationView.visibleViewController as! CategoryViewController
-        
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let row = Int(indexPath.row)
-            categoryView.currentObject = (objects?[row] as! PFObject)
+        if segue.identifier == "CreateNewCategory" {
+            
+        } else if segue.identifier == "ShowCategoryView" {
+            var navigationView = segue.destinationViewController as! UINavigationController
+            var categoryView = navigationView.visibleViewController as! CategoryViewController
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let row = Int(indexPath.row)
+                categoryView.currentObject = (objects?[row] as! PFObject)
+            }
         }
+        
     }
     
     // MARK: Queries
