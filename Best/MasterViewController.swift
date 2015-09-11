@@ -54,13 +54,6 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-//        self.navigationItem.rightBarButtonItem = addButton
-        
-        self.tableView.reloadData()
 
     }
     
@@ -69,6 +62,7 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
         
         self.presentLogInView()
         
+        self.loadObjects()
     }
 
     override func didReceiveMemoryWarning() {

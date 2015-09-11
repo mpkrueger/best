@@ -57,8 +57,6 @@ class CategoryViewController: PFQueryTableViewController {
             }
         }
         
-        
-        
         cell.voteButton.tag = indexPath.row
         
         return cell
@@ -82,11 +80,7 @@ class CategoryViewController: PFQueryTableViewController {
             }
         }
         
-        if(sender.selected == false) {
-            sender.selected = true
-        } else {
-            sender.selected = false
-        }
+        self.loadObjects()
         
     }
     
@@ -99,12 +93,7 @@ class CategoryViewController: PFQueryTableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        // This isn't working
-        println("page is going to reload data")
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+        self.loadObjects()
     }
     
     override func didReceiveMemoryWarning() {
