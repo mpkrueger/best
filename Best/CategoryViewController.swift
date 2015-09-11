@@ -12,7 +12,7 @@ import ParseUI
 
 class CategoryViewController: PFQueryTableViewController {
     var currentObject : PFObject?
-    var candidates: Array<AnyObject>?
+//    var candidates: Array<PFObject>?
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -40,7 +40,27 @@ class CategoryViewController: PFQueryTableViewController {
         if cell == nil {
             cell = CandidateTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         }
-
+        
+        var query = PFQuery(className: "CategoryCandidates")
+        query.whereKey("categoryID", equalTo: currentObject!)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                let candidates = objects as? [PFObject]
+                
+                var categoryVotes = PFQuery(className: "CandidateVotes")
+                categoryVotes.whereKey("candidateID", containedIn: candidates!)
+                categoryVotes.whereKey("userID", equalTo: PFUser.currentUser()!)
+                
+                categoryVotes.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        if objects?.count > 0 {
+                            cell?.voteButton.removeFromSuperview()
+                        }
+                    }
+                }
+            }
+        }
+        
         cell?.voteButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
 
         
@@ -71,14 +91,7 @@ class CategoryViewController: PFQueryTableViewController {
         var candidateVote = PFObject(className: "CandidateVotes")
         candidateVote["candidateID"] = candidate
         candidateVote["userID"] = PFUser.currentUser()
-        candidateVote.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                println("object saved")
-            } else {
-                println("Error: \(error!) \(error!.userInfo!)")
-            }
-        }
+        candidateVote.save()
         
         self.loadObjects()
         
