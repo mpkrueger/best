@@ -19,13 +19,11 @@ class NewCategoryViewController: UIViewController {
     
     @IBAction func saveButton(sender: AnyObject) {
         if let categoryTitle = categoryTitle.text {
-            if let categoryCategory = categoryCategory.text {
-                var category = PFObject(className: "BestCategory")
-                category["categoryTitle"] = categoryTitle
-                category["categoryCategory"] = categoryCategory
+            var category = PFObject(className: "BestCategory")
+            category["categoryTitle"] = categoryTitle
+            category["city"] = "San Francisco"
                 
-                category.save()
-            }
+            category.save()
         }
         
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)

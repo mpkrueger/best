@@ -10,13 +10,32 @@ import UIKit
 
 class CandidateViewController: UIViewController {
     
-    var currentObject : PFObject?
+    var currentObject: PFObject?
+    var categoryTitle: String?
     
     @IBOutlet weak var candidateTitle: UITextField!
     
     @IBAction func cancelButton(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    
+    required init(coder aDecoder: (NSCoder!)) {
+
+        super.init(coder: aDecoder)
+
+    }
+    
+    init(currentObject: PFObject, categoryTitle: String) {
+        self.currentObject = currentObject
+        self.categoryTitle = categoryTitle
+        
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    
     
     @IBAction func saveButton(sender: AnyObject) {
         if let candidateTitle = candidateTitle.text {
@@ -49,6 +68,14 @@ class CandidateViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        var prompt = UILabel(frame: CGRectMake(0, CGRectGetHeight(self.view.frame) / 4, 300, 20))
+        prompt.center = CGPointMake(CGRectGetWidth(self.view.frame) / 2, CGRectGetHeight(self.view.frame) / 4)
+        prompt.text = "What is the best place to get \(categoryTitle)?"
+        
+        println(currentObject)
+        println(categoryTitle)
+        
+        self.view.addSubview(prompt)
     }
 
     override func didReceiveMemoryWarning() {

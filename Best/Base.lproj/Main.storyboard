@@ -31,51 +31,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JmA-r5-mbU">
-                                <rect key="frame" x="114" y="171" width="373" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="burgers" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JmA-r5-mbU">
+                                <rect key="frame" x="176" y="259" width="133" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint=""/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="373" id="kpx-Yt-Igc"/>
+                                    <constraint firstAttribute="width" constant="133" id="kpx-Yt-Igc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's a category you'd like to find the best for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHt-jA-epo">
-                                <rect key="frame" x="114" y="110" width="373" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHt-jA-epo">
+                                <rect key="frame" x="129" y="263" width="60" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Bys-ab-0AO"/>
-                                    <constraint firstAttribute="width" constant="373" id="wHy-aK-fb1"/>
+                                    <constraint firstAttribute="width" constant="60" id="wHy-aK-fb1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's a more general category for that thing?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oz-lC-a4D">
-                                <rect key="frame" x="123" y="234" width="357" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in San Francisco?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYm-9Y-yBD">
+                                <rect key="frame" x="326" y="263" width="138" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="357" id="Sy9-Ab-8wu"/>
-                                    <constraint firstAttribute="height" constant="21" id="fK1-3J-Mkw"/>
+                                    <constraint firstAttribute="width" constant="138" id="1tj-Qp-hyK"/>
+                                    <constraint firstAttribute="height" constant="21" id="Zzn-C0-lkQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-kR-auD">
-                                <rect key="frame" x="114" y="299" width="373" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new type of food." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dob-v1-WJw">
+                                <rect key="frame" x="129" y="122" width="185" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="fYN-3n-ioi"/>
+                                    <constraint firstAttribute="height" constant="21" id="geX-fd-lK9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others will identify places &amp; vote on them." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS4-4c-Cxy">
+                                <rect key="frame" x="129" y="151" width="322" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="64c-YR-HB1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then you can go try it out." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dl-gs-8xf">
+                                <rect key="frame" x="129" y="180" width="201" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BVH-Z6-Ver"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" hint="burgers"/>
                         <constraints>
-                            <constraint firstItem="JmA-r5-mbU" firstAttribute="centerY" secondItem="hJK-kc-uVW" secondAttribute="centerY" constant="-114" id="2j7-ro-rca"/>
-                            <constraint firstItem="JmA-r5-mbU" firstAttribute="centerX" secondItem="hJK-kc-uVW" secondAttribute="centerX" constant="0.5" id="DVb-tY-LGx"/>
-                            <constraint firstItem="ruO-kR-auD" firstAttribute="trailing" secondItem="JmA-r5-mbU" secondAttribute="trailing" id="Kkt-hj-RCT"/>
-                            <constraint firstItem="3Oz-lC-a4D" firstAttribute="top" secondItem="JmA-r5-mbU" secondAttribute="bottom" constant="33" id="UWu-CM-Hh0"/>
-                            <constraint firstItem="3Oz-lC-a4D" firstAttribute="centerX" secondItem="JmA-r5-mbU" secondAttribute="centerX" constant="1" id="kIH-uz-8gO"/>
-                            <constraint firstItem="ruO-kR-auD" firstAttribute="top" secondItem="3Oz-lC-a4D" secondAttribute="bottom" constant="44" id="nqm-NR-fRl"/>
-                            <constraint firstItem="XHt-jA-epo" firstAttribute="centerX" secondItem="JmA-r5-mbU" secondAttribute="centerX" id="ocZ-mw-J9F"/>
-                            <constraint firstItem="ruO-kR-auD" firstAttribute="leading" secondItem="JmA-r5-mbU" secondAttribute="leading" id="uSW-yh-JAz"/>
-                            <constraint firstItem="JmA-r5-mbU" firstAttribute="top" secondItem="XHt-jA-epo" secondAttribute="bottom" constant="40" id="w4y-nf-Sic"/>
+                            <constraint firstItem="JmA-r5-mbU" firstAttribute="centerY" secondItem="hJK-kc-uVW" secondAttribute="centerY" constant="-26" id="2j7-ro-rca"/>
+                            <constraint firstItem="9dl-gs-8xf" firstAttribute="top" secondItem="aS4-4c-Cxy" secondAttribute="bottom" constant="8" symbolic="YES" id="40G-9y-Tgd"/>
+                            <constraint firstItem="aS4-4c-Cxy" firstAttribute="top" secondItem="dob-v1-WJw" secondAttribute="bottom" constant="8" symbolic="YES" id="BBI-un-qc3"/>
+                            <constraint firstItem="JmA-r5-mbU" firstAttribute="centerX" secondItem="hJK-kc-uVW" secondAttribute="centerX" constant="-57.5" id="DVb-tY-LGx"/>
+                            <constraint firstItem="JmA-r5-mbU" firstAttribute="top" secondItem="9dl-gs-8xf" secondAttribute="bottom" constant="58" id="RhH-0k-cvp"/>
+                            <constraint firstItem="9dl-gs-8xf" firstAttribute="leading" secondItem="aS4-4c-Cxy" secondAttribute="leading" id="VO3-aL-2z6"/>
+                            <constraint firstItem="9dl-gs-8xf" firstAttribute="leading" secondItem="XHt-jA-epo" secondAttribute="leading" id="iNB-3E-kww"/>
+                            <constraint firstItem="sYm-9Y-yBD" firstAttribute="leading" secondItem="JmA-r5-mbU" secondAttribute="trailing" constant="17" id="kxF-DP-mQz"/>
+                            <constraint firstItem="sYm-9Y-yBD" firstAttribute="baseline" secondItem="XHt-jA-epo" secondAttribute="baseline" id="mXM-ZU-fQ7"/>
+                            <constraint firstItem="XHt-jA-epo" firstAttribute="centerX" secondItem="JmA-r5-mbU" secondAttribute="centerX" constant="-83.5" id="ocZ-mw-J9F"/>
+                            <constraint firstItem="JmA-r5-mbU" firstAttribute="top" secondItem="XHt-jA-epo" secondAttribute="bottom" constant="-25" id="w4y-nf-Sic"/>
+                            <constraint firstItem="dob-v1-WJw" firstAttribute="leading" secondItem="aS4-4c-Cxy" secondAttribute="leading" id="wDM-iI-er7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Category" id="mJH-I6-4DQ">
@@ -91,7 +119,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="categoryCategory" destination="ruO-kR-auD" id="KTW-mn-Htw"/>
                         <outlet property="categoryTitle" destination="JmA-r5-mbU" id="c7j-RW-Rg9"/>
                     </connections>
                 </viewController>
@@ -198,7 +225,7 @@
             </objects>
             <point key="canvasLocation" x="2704" y="-96"/>
         </scene>
-        <!--New Item-->
+        <!--Nominate Your Favorite-->
         <scene sceneID="wDy-H1-9Ob">
             <objects>
                 <viewController id="lS2-Bm-xUw" customClass="CandidateViewController" customModule="Best" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,28 +237,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you think is the best?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWN-HX-oOU">
-                                <rect key="frame" x="183" y="244" width="234" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atE-yg-CiF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="for example, Little Star" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atE-yg-CiF">
                                 <rect key="frame" x="183" y="299" width="234" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="zHX-DP-e1C"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="atE-yg-CiF" firstAttribute="top" secondItem="rWN-HX-oOU" secondAttribute="bottom" constant="34" id="6p3-dp-kkT"/>
-                            <constraint firstItem="rWN-HX-oOU" firstAttribute="top" secondItem="Z5U-uA-cMl" secondAttribute="bottom" constant="180" id="70G-kN-dQ7"/>
-                            <constraint firstItem="atE-yg-CiF" firstAttribute="leading" secondItem="rWN-HX-oOU" secondAttribute="leading" id="SYK-G7-Wop"/>
-                            <constraint firstItem="rWN-HX-oOU" firstAttribute="centerX" secondItem="VoT-qQ-Ut1" secondAttribute="centerX" id="UXg-pr-Vq7"/>
-                            <constraint firstItem="atE-yg-CiF" firstAttribute="trailing" secondItem="rWN-HX-oOU" secondAttribute="trailing" id="WTe-BT-ka2"/>
+                            <constraint firstItem="atE-yg-CiF" firstAttribute="top" secondItem="Z5U-uA-cMl" secondAttribute="bottom" constant="235" id="Pbz-Of-L1g"/>
+                            <constraint firstItem="atE-yg-CiF" firstAttribute="centerX" secondItem="VoT-qQ-Ut1" secondAttribute="centerX" id="cra-EV-3Zs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Item" id="ZV5-eC-vio">
+                    <navigationItem key="navigationItem" title="Nominate Your Favorite" id="ZV5-eC-vio">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="45s-gc-oWk">
                             <connections>
                                 <action selector="cancelButton:" destination="lS2-Bm-xUw" id="3qz-VH-IKU"/>

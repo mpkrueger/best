@@ -35,11 +35,11 @@ class MasterViewController: PFQueryTableViewController, PFLogInViewControllerDel
         
         // Extract values from the PFObject to display in the table cell
         if let categoryTitle = object?["categoryTitle"] as? String {
-            cell?.textLabel?.text = categoryTitle
+            cell?.textLabel?.text = categoryTitle.capitalizedString
         }
         
-        if let categoryCategory = object?["categoryCategory"] as? String {
-            cell?.detailTextLabel?.text = categoryCategory
+        if let city = object?["city"] as? String {
+            cell?.detailTextLabel?.text = city
         }
         return cell
     }

@@ -12,7 +12,6 @@ import ParseUI
 
 class CategoryViewController: PFQueryTableViewController {
     var currentObject : PFObject?
-//    var candidates: Array<PFObject>?
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -53,7 +52,7 @@ class CategoryViewController: PFQueryTableViewController {
                 
                 categoryVotes.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
                     if error == nil {
-                        if objects?.count > 0 {
+                        if objects?.count > 1 {
                             cell?.voteButton.removeFromSuperview()
                         }
                     }
@@ -61,7 +60,7 @@ class CategoryViewController: PFQueryTableViewController {
             }
         }
         
-        cell?.voteButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell?.voteButton.addTarget(self, action: Selector("buttonAction:"), forControlEvents: UIControlEvents.TouchUpInside)
 
         
         // Extract values from the PFObject to display in the table cell
@@ -82,7 +81,7 @@ class CategoryViewController: PFQueryTableViewController {
         return cell
     }
     
-    func buttonAction(sender:UIButton!) {
+    func buttonAction(sender: DOFavoriteButton) {
         
         let buttonPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         let buttonIndex = self.tableView.indexPathForRowAtPoint(buttonPoint)
@@ -93,6 +92,12 @@ class CategoryViewController: PFQueryTableViewController {
         candidateVote["userID"] = PFUser.currentUser()
         candidateVote.save()
         
+        if sender.selected {
+            sender.deselect()
+        } else {
+            sender.select()
+        }
+        
         self.loadObjects()
         
     }
@@ -102,7 +107,8 @@ class CategoryViewController: PFQueryTableViewController {
         
         tableView.registerClass(CandidateTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-
+        println(currentObject)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -118,6 +124,6 @@ class CategoryViewController: PFQueryTableViewController {
         var navigationView = segue.destinationViewController as! UINavigationController
         var candidateView = navigationView.visibleViewController as! CandidateViewController
         
-        candidateView.currentObject = currentObject
+        candidateView.currentObject = currentObject!
     }
 }
