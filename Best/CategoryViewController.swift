@@ -107,8 +107,6 @@ class CategoryViewController: PFQueryTableViewController {
         
         tableView.registerClass(CandidateTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        println(currentObject)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -125,5 +123,6 @@ class CategoryViewController: PFQueryTableViewController {
         var candidateView = navigationView.visibleViewController as! CandidateViewController
         
         candidateView.currentObject = currentObject!
+        candidateView.categoryTitle = currentObject!["categoryTitle"] as? String
     }
 }

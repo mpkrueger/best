@@ -70,10 +70,7 @@ class CandidateViewController: UIViewController {
         // Do any additional setup after loading the view.
         var prompt = UILabel(frame: CGRectMake(0, CGRectGetHeight(self.view.frame) / 4, 300, 20))
         prompt.center = CGPointMake(CGRectGetWidth(self.view.frame) / 2, CGRectGetHeight(self.view.frame) / 4)
-        prompt.text = "What is the best place to get \(categoryTitle)?"
-        
-        println(currentObject)
-        println(categoryTitle)
+        prompt.text = "What is the best place to get \(categoryTitle!)?"
         
         self.view.addSubview(prompt)
     }
